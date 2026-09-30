@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html><body style="font-family:Arial; background:#e3e6e6">
+<a href="/" style="padding:15px; display:block">← Continue Shopping</a>
+<div style="background:white; margin:20px; padding:20px">
+<h2>Shopping Cart ({{cart_count}}) for Deeksha ❤️</h2>
+{% for p in items %}
+<div style="display:flex; gap:20px; border-bottom:1px solid #ddd; padding:15px">
+<img src="{{p[3]}}" style="width:100px"><div><h3>{{p[1]}}</h3><p>₹{{p[2]}}</p><a href="/remove/{{p[0]}}">Delete</a></div>
+</div>
+{% endfor %}
+<h3 style="text-align:right">Total: ₹{{total}}</h3>
+<div style="text-align:right"><a href="/checkout"><button style="background:#ffd814; padding:12px 25px; border-radius:8px; border:none; font-weight:bold">Proceed to Buy</button></a></div>
+</div></body></html>

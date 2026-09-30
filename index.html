@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head><title>Amazon.in - Deeksha's Store</title>
+<style>
+*{margin:0; padding:0; box-sizing:border-box} body{font-family:Arial; background:#e3e6e6}
+.top{background:#131921; color:white; display:flex; align-items:center; padding:10px; gap:15px;}
+.logo{font-size:28px; font-weight:bold}.logo span{color:#febd69; font-size:16px}
+.search{flex:1; display:flex; height:40px;}.search input{flex:1; border:none; padding:10px}.search button{background:#febd69; border:none; width:50px; border-radius:0 4px 4px 0}
+.nav-right{display:flex; gap:20px; font-size:14px; align-items:center}
+.hello b{display:block}
+.cart{font-weight:bold; font-size:18px}
+.subnav{background:#232f3e; color:white; padding:8px 15px; display:flex; gap:20px; font-size:14px}
+.banner{background: linear-gradient(to bottom, #ffcc00, #e3e6e6); padding:15px; text-align:center; font-weight:bold}
+.container{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; padding:20px}
+.card{background:white; padding:20px; border-radius:4px; box-shadow:0 2px 5px rgba(0,0,0,0.2); text-align:center}
+.card img{width:100%; height:200px; object-fit:contain; background:#f7f7f7}
+.price{color:#B12704; font-size:20px; font-weight:bold; margin:10px 0}
+.btn{background:#ffd814; border:none; padding:8px 20px; border-radius:20px; font-weight:bold; cursor:pointer; width:100%}
+</style></head>
+<body>
+<div class="top">
+<div class="logo">amazon<span>.in</span></div>
+<div style="font-size:13px">Deliver to<br><b>Deeksha, Delhi</b></div>
+<form class="search" action="/"><input name="q" placeholder="Search Deeksha's Store"><button type="submit">🔍</button></form>
+<div class="nav-right">
+<a href="/login" style="color:white; text-decoration:none"><div>Hello, Deeksha<br><b>Account</b></div></a>
+<a href="/cart" style="color:white; text-decoration:none"><div class="cart">🛒 Cart ({{cart_count}})</div></a>
+</div>
+</div>
+<div class="subnav"><span>All</span><span>Best Sellers</span><span>Today's Deals</span><span>Prime</span><span>Electronics</span><span>Fashion for Deeksha</span></div>
+<div class="banner">🎉 Great Indian Festival - Up to 80% OFF for Deeksha ❤️</div>
+<div class="container">
+{% for p in products %}
+<div class="card">
+<a href="/product/{{p[0]}}"><img src="{{p[3]}}"></a>
+<h3 style="font-size:15px; height:40px; overflow:hidden">{{p[1]}}</h3>
+<div class="price">₹{{p[2]}}</div>
+<a href="/product/{{p[0]}}"><button class="btn">View Details</button></a>
+</div>
+{% endfor %}
+</div>
+</body></html>
